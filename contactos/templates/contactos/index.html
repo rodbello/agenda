@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="4">
+                    Listado de Contactos
+                </th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>EMAIL</th>
+                <th>TELEFONO</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if contactos %}
+            {% for contacto in contactos %}
+                <tr>
+                    <td>{{ contacto.id }}</td>
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.email }}</td>
+                    <td>{{ contacto.telefono }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4">Sin Contactos</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}
